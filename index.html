@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--tablesorter custom theme -->
+    <link type="text/css" rel="stylesheet" href="themes/materialize/style.css"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Cherry MX switches</title>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <h1>Cherry MX Switches</h1>
+
+      <table class="highlight centered bordered tablesorter">
+        <thead>
+          <tr>
+            <th width='20%'>Color</th>
+            <th width='12%'>Type</th>
+            <th width='18%'>Actuation Force</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <br>
+      <h5>References</h5>
+      <ol>
+        <li><a href='http://www.wasdkeyboards.com/mechanical-keyboard-guide'>http://www.wasdkeyboards.com/mechanical-keyboard-guide</a></li>
+      </ol>
+
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <!--Render table from switches data-->
+    <script type="text/javascript" src="data.js"></script>
+    <script>
+
+      function cap1char(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+
+      $(data).each(function(i, o){
+        $('tbody').append(`
+        <tr>
+          <td>
+            <img class='responsive-img' src='img/cherry-mx-${o.color}.jpg'>
+            ${cap1char(o.color)}
+          </td>
+          <td>${o.type}</td>
+          <td>${o.force_g}g</td>
+          <td style='text-align: left;'>${o.info}</td>
+        </tr>
+        `);
+      });
+
+      // enable sortable
+      $('table').tablesorter(); 
+
+    </script>
+  </body>
+</html>
