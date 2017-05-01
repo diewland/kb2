@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- native integration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel='apple-touch-startup-image' href='./android-chrome-512x512.png'>
+    <meta name='apple-mobile-web-app-title' content='KB2'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='white'>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -24,9 +36,9 @@
         <thead>
           <tr>
             <th width='20%'>Color</th>
-            <th width='12%'>Type</th>
-            <th width='18%'>Actuation Force</th>
-            <th>Detail</th>
+            <th width='15%'>Type</th>
+            <th width='10%'>Force</th>
+            <th class='hide-on-small-only'>Detail</th>
           </tr>
         </thead>
         <tbody>
@@ -43,8 +55,8 @@
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
 
     <!--Render table from switches data-->
     <script type="text/javascript" src="data.js"></script>
@@ -63,7 +75,7 @@
           </td>
           <td>${o.type}</td>
           <td>${o.force_g}g</td>
-          <td style='text-align: left;'>${o.info}</td>
+          <td class='hide-on-small-only' style='text-align: left;'>${o.info}</td>
         </tr>
         `);
       });
@@ -72,5 +84,6 @@
       $('table').tablesorter(); 
 
     </script>
+
   </body>
 </html>
